@@ -25,6 +25,7 @@
     color:var(--main-background-color);
     em{
       display:inline;
+      font-family: 'TTHakgyoansimMulgyeolB';
     }
     @media screen and (max-width:600px) {
       em{display: block;}
