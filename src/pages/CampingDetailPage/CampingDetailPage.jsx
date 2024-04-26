@@ -173,6 +173,34 @@ const CampingDetailPage = () => {
                     )}
                   </div>
                   <div>
+                    {Object.entries(campingDetail).map(([key, value]) => {
+                      if (key.startsWith("siteBottomCl") && value > 0) {
+                        let type = "";
+                        switch (key) {
+                          case "siteBottomCl1":
+                            type = "잔디";
+                            break;
+                          case "siteBottomCl2":
+                            type = "파쇄석";
+                            break;
+                          case "siteBottomCl3":
+                            type = "테크";
+                            break;
+                          case "siteBottomCl4":
+                            type = "자갈";
+                            break;
+                          case "siteBottomCl5":
+                            type = "맨흙";
+                            break;
+                          default:
+                            break;
+                        }
+                        return `바닥형태(단위:면) : ${type}(${value})`;
+                      }
+                      return null;
+                    })}
+                  </div>
+                  {/* <div>
                     <div>
                       {campingDetail.siteBottomCl4 > 0
                         ? `바닥형태(단위:면) : 자갈(${campingDetail.siteBottomCl4})`
@@ -196,7 +224,7 @@ const CampingDetailPage = () => {
                     {campingDetail.siteBottomCl5 > 0
                       ? `바닥형태(단위:면) : 맨흙(${campingDetail.siteBottomCl5})`
                       : ""}
-                  </div>
+                  </div> */}
                   <div className="kakao-talk-area">
                     <HandleCopyClipBoard data={campingDetail} />
                     <CampingDetailPageKakao data={campingDetail} />
